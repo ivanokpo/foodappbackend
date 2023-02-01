@@ -219,6 +219,11 @@ app.get('/recipes/searched/:search', (request, response) => {
       }
 })
 
+app.get('/recipes/all', (request, response) => {
+    console.log("hi")
+    response.json(recipes);
+})
+
 app.get('/recipes/:id', (request, response) => {
     const requested = Number(request.params.id)
     const searchItem = recipes.find(dish => dish.id === requested)
@@ -230,9 +235,7 @@ app.get('/recipes/:id', (request, response) => {
       }
 })
 
-app.get('/recipes/all', (request, response) => {
-    response.json(recipes);
-})
+
 
 const PORT = 3001
   app.listen(PORT, () => {
